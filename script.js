@@ -13,7 +13,7 @@ const totalCostElement = document.querySelector('#totalCost');
 const totalQuantityElement = document.querySelector('#totalQuantity');
 
 
-displayGroceryItems = () => {
+function displayGroceryItems() {
     groceryList.innerHTML = '';
 
     let totalCost = 0;
@@ -32,8 +32,9 @@ displayGroceryItems = () => {
     totalQuantityElement.textContent = `Total Quantity: ${totalQuantity}`;
 }
 
-isolateCategory = (category) => {
-    groceryItems.innerHTML = '';
+
+function isolateCategory(category) {
+    groceryList.innerHTML = '';
 
     const filteredItems = groceryItems.filter(item => {
         return item.category === category;
@@ -42,6 +43,29 @@ isolateCategory = (category) => {
     filteredItems.forEach(item => {
         const itemDiv = document.createElement("div");
         itemDiv.innerHTML = `<b>${item.name}</b> (${item.category}): $${item.price} - ${item.quantity}`;
-        filteredItems.appendChild(itemDiv);
-    })
+        groceryList.appendChild(itemDiv);
+    });
+}
+
+
+function showAllCategories() {
+    return displayGroceryItems();
+}
+
+
+function orderItemsByCost() {
+    groceryItems.sort((a, b) => b.price - a.price);
+    return displayGroceryItems();
+}
+
+function addItemPrompt() {
+    const name = prompt('What is your item? (e.g. Apple, Carrot, Milk)');
+    const category = prompt('What category? (e.g. Fruits, Vegetables, Dairy)');
+    const price = prompt('What is the price?');
+    const quantity = prompt('What is the quantity?');
+
+    if (name === '' || category === '' || price === '' || quantity === '') {
+        alert('You are missing information. Please choose again.')
+        return; 
+    }
 }
