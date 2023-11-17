@@ -68,4 +68,26 @@ function addItemPrompt() {
         alert('You are missing information. Please choose again.')
         return; 
     }
+
+    const priceValue = parseFloat(price);
+
+    const quantityValue = parseInt(quantity);
+
+    if (isNaN(priceValue) || isNaN(quantityValue)) {
+        alert('It is not an numeric value.');
+        return;
+    }
+
+    const newItem = {
+        name: name,
+        category: category,
+        price: priceValue,
+        quantity: quantityValue,
+    };
+
+    groceryItems.push(newItem);
+
+    displayGroceryItems();
 }
+
+displayGroceryItems();
