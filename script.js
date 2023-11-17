@@ -28,8 +28,8 @@ function displayGroceryItems() {
         totalQuantity += item.quantity;
     });
 
-    totalCostElement.textContent = `Total Cost: $${totalCost.toFixed(2)}`;
-    totalQuantityElement.textContent = `Total Quantity: ${totalQuantity}`;
+    totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+    totalQuantityElement.textContent = `${totalQuantity}`;
 }
 
 
