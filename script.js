@@ -59,13 +59,14 @@ function orderItemsByCost() {
 }
 
 function addItemPrompt() {
-    const name = prompt('What is your item? (e.g. Apple, Carrot, Milk)');
-    const category = prompt('What category? (e.g. Fruits, Vegetables, Dairy)');
-    const price = prompt('What is the price?');
-    const quantity = prompt('What is the quantity?');
+    const alertInt = alert('Please be sure to enter each input. Thank you!');
+    const name = prompt('What is your item? (e.g. Apple, Carrot, Milk, etc.)');
+    const category = prompt('What category? (e.g. Fruits, Vegetables, Dairy, etc.)');
+    const price = prompt('What is the price? (e.g. 2.00, 3.25, etc.)');
+    const quantity = prompt('What is the quantity? (e.g. 1, 2, 3, etc.');
 
     if (name === '' || category === '' || price === '' || quantity === '') {
-        alert('You are missing information. Please choose again.')
+        alert('You are missing information. Please add the item again.')
         return; 
     }
 
@@ -74,7 +75,7 @@ function addItemPrompt() {
     const quantityValue = parseInt(quantity);
 
     if (isNaN(priceValue) || isNaN(quantityValue)) {
-        alert('It is not an numeric value.');
+        alert('Price or Quantity is not an numeric value. Please add again.');
         return;
     }
 
